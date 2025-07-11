@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup Aplikasi Peminjaman Buku</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #f4f9ff; color: #003366; }
+    h1, h2 { color: #0056b3; }
+    .section { margin-bottom: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+    th { background: #dbefff; }
+    form input, form select, form button {
+      padding: 10px; margin: 8px 0; width: 100%; box-sizing: border-box; border-radius: 5px;
+      border: 1px solid #ccc; font-size: 1rem;
+    }
+    form button { background: #0056b3; color: white; border: none; cursor: pointer; }
+    form button:hover { background: #004494; }
+  </style>
+</head>
+<body>
+  <h1>Mockup Aplikasi Peminjaman Buku</h1>
+
+  <div class="section">
+    <h2>📚 Daftar Buku</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Judul Buku</th><th>Penulis</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>001</td><td>Belajar HTML</td><td>Ahmad Santoso</td><td>Tersedia</td></tr>
+        <tr><td>002</td><td>Dasar Pemrograman</td><td>Lisa Wulandari</td><td>Dipinjam</td></tr>
+        <tr><td>003</td><td>Manajemen Proyek</td><td>Rina Dewi</td><td>Tersedia</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>📝 Formulir Peminjaman</h2>
+    <form onsubmit="handleSubmit(event)">
+      <label for="nama">Nama Peminjam</label>
+      <input type="text" id="nama" name="nama" required>
+
+      <label for="buku">Pilih Buku</label>
+      <select id="buku" name="buku">
+        <option value="Belajar HTML">Belajar HTML</option>
+        <option value="Dasar Pemrograman">Dasar Pemrograman</option>
+        <option value="Manajemen Proyek">Manajemen Proyek</option>
+      </select>
+
+      <label for="tanggal">Tanggal Peminjaman</label>
+      <input type="date" id="tanggal" name="tanggal" required>
+
+      <button type="submit">Pinjam Buku</button>
+    </form>
+    <div id="output" style="margin-top:1rem; color:green;"></div>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const buku = document.getElementById('buku').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const output = document.getElementById('output');
+      output.textContent = `✔️ ${nama} berhasil meminjam buku "${buku}" pada tanggal ${tanggal}.`;
+    }
+  </script>
+</body>
+</html>
